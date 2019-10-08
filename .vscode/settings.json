@@ -6,5 +6,9 @@
         "type_traits": "cpp",
         "istream": "cpp",
         "string": "cpp"
+    },
+    "files.exclude": {
+        "*.dSYM/": true,
+        "*.o": true
     }
 }
