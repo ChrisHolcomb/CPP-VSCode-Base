@@ -36,7 +36,6 @@ int main() {
          } else {
             istringstream issLine(mixDataContent);
             issLine >> accountNumber;
-            cout << accountNumber;
 
             if (accountNumber >= 0 && accountNumber <= 400) {
                if (accountNumber >= 300){
