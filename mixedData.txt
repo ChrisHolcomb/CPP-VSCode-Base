@@ -1,0 +1,10 @@
+Big Data Account Information
+Account Number  Amount  W/D Transaction Code
+83  296.91  D   AC54
+65  338.56  D   AC24
+61  285.87  D   AC119
+28  478.23  D   AC83
+29  22.38   D   AC173
+306 709.72  W   DC168
+293 164.41  D   DC262
+264 15.34   D   DC4
