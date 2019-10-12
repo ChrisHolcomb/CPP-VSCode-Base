@@ -73,5 +73,14 @@ int main() {
       cout << setw(23) << right << intDataPoints[i] << endl;
    }
 
+   cout << "\n\n";   
+   for (int i=0; i < strDataPoints.size(); i++) {
+      cout << setw(20) << right << strDataPoints[i] << " ";
+      for (int j=0; j < intDataPoints[i]; j++) {
+         cout << "*";
+      }
+      cout << endl;
+   }
+
    return 0;
 }
