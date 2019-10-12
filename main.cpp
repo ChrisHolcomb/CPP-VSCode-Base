@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include <sstream>
 #include <vector>
@@ -56,10 +57,21 @@ int main() {
          if (!foundError) {
             cout << "Data string: " << strDataPoint1 << endl;
             cout << "Data integer: " << intDataPoint << endl;
+            strDataPoints.push_back(strDataPoint1);
+            intDataPoints.push_back(intDataPoint);
          }
       }
    }
 
+   cout << setw(33) << right << dataTitle << endl;
+   cout << setw(20) << left << headerColumn1 << "|";
+   cout << setw(23) << right << headerColumn2 << endl;
+   cout << setfill('-') << setw(43) <<  "" << setfill(' ') << endl;
+
+   for (int i=0; i < strDataPoints.size(); i++) {
+      cout << setw(20) << left << strDataPoints[i] << "|";
+      cout << setw(23) << right << intDataPoints[i] << endl;
+   }
 
    return 0;
 }
