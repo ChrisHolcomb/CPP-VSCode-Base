@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-   string userInput=" ", strR, strL, strJ;
+   string userInput, strR, strL, strJ;
    int intR, intL, intJ;
 
    while(1) {
