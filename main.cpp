@@ -3,16 +3,16 @@
 using namespace std;
 
 int main() {
-   string userInput, strR, strL, strJ;
+   string userInput=" ", strR, strL, strJ;
    int intR, intL, intJ;
 
    while(1) {
+      getline(cin, userInput);
       if (userInput == "EOF" || userInput.length() < 1) {
          exit(1);
       }
       else
       {
-         getline(cin, userInput);
          size_t posPlus=0, posEqual=0;
          posPlus = userInput.find("+");
          posEqual = userInput.find("=");
