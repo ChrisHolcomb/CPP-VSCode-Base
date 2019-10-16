@@ -52,9 +52,11 @@ int main() {
             for (int j=0; j<vowelGroups.size(); j++) {
                if (s == vowelGroups[j][0]) {
                   pronounce += vowelGroups[j][1];
-                  // only add the - if the next character is not a space and
+                  // only add the - if the next character is not a space or ' and
                   // we have not reached the end of line
-                  if (i < userInput.length() - 2 && userInput[i+2] != ' ') {
+                  if (i < userInput.length() - 2 && 
+                        userInput[i+2] != ' ' &&
+                        userInput[i+2] != '\'') {
                      pronounce += "-";
                   }
                   // mark as a group and fat forward our i pointer so we dont
@@ -69,9 +71,11 @@ int main() {
                   if (userInput[i] == vowels[j][0].at(0)) {
                      pronounce += vowels[j][1];
                      isVowel = true;
-                     // only add the - if the next character is not a space and
+                     // only add the - if the next character is not a space or ' and
                      // we have not reached the end of line
-                     if (i < userInput.length() - 1 && userInput[i+1] != ' ') {
+                     if (i < userInput.length() - 1 && 
+                           userInput[i+1] != ' ' &&
+                           userInput[i+1] != '\'') {
                         pronounce += "-";
                      }
                   }
