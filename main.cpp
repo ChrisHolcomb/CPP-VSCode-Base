@@ -31,7 +31,7 @@ int main() {
 
    while(!stop) {
       cout << "Enter a Hawaiian word to pronounce: ";
-      cin >> userInput;
+      getline(cin, userInput);
 
       for (int i=0; i<userInput.length(); i++) {
          if (find(valid.begin(), valid.end(), userInput[i]) == valid.end()){
@@ -79,7 +79,7 @@ int main() {
          cout << " is pronounced " << pronounce << "\n\n";
 
          cout << "Do you want to enter another word? Y/YES/N/NO ";
-         cin >> answer;
+         getline(cin,answer);
          
          if (answer == "n" || answer == "no") {
             stop = true;
