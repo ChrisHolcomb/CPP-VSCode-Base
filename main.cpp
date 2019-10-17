@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <algorithm>
 using namespace std;
 
 int main() {
@@ -26,7 +25,7 @@ int main() {
       vector<string>{"ui","ooey"}
    };
    string userInput, pronounce, answer;
-   bool isHawaiian=true, isGroup=false, isVowel=false, stop=false;
+   bool isHawaiian=true, isGroup=false, isVowel=false, stop=false, charFound=false;
 
    while(!stop) {
       cout << "Enter a Hawaiian word to pronounce: ";
@@ -34,14 +33,21 @@ int main() {
       // conver to lower case for matching
       transform(userInput.begin(), userInput.end(), userInput.begin(), ::tolower);
       // go through each character of the input
-      for (int i=0; i<userInput.length(); i++) {
-         if (find(valid.begin(), valid.end(), userInput[i]) == valid.end()){
+      for (unsigned int i=0; i<userInput.length(); i++) {
+         for (unsigned int j=0; j<valid.size(); j++) {
+            if (userInput[i] == valid[j]) {
+               charFound = true;
+            }
+         }
+         if (!charFound) {
+            userInput[i] = toupper(userInput[i]);
             cout << userInput[i] << " is not a valid hawaiian character\n";
             isHawaiian = false;
             break;
          }
-         else
-         {
+         charFound = false;
+
+         if(isHawaiian) {
             // check the current character and the next to see
             // if this is in the vowel group
             string s;
@@ -81,16 +87,15 @@ int main() {
                   }
                }
             }        
+            // If this was not a value or a vowel group then add the charter to the output
+            if (!isVowel && !isGroup) {
+               pronounce += userInput[i];
+            }
+            // clear our flags for group and vowel
+            isGroup=false;
+            isVowel=false;
          }
-         // If this was not a value or a vowel group then add the charter to the output
-         if (!isVowel && !isGroup) {
-            pronounce += userInput[i];
-         }
-         // clear our flags for group and vowel
-         isGroup=false;
-         isVowel=false;
       }
-      
       // only output the results if this was a valid hawaiian word
       if (isHawaiian) {
          transform(userInput.begin(), userInput.end(), userInput.begin(), ::toupper);
