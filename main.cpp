@@ -11,7 +11,7 @@ int main() {
    for (int testCase=0; testCase < numCases; testCase++) {
       cin >> numFib;
 
-      long unsigned int fib[numFib];
+      unsigned long fib[numFib];
       fib[0] = 0; 
       fib[1] = 1; 
 
