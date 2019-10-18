@@ -1,16 +1,23 @@
 #include <iostream>
+#include <iomanip>
+#include <vector>
 using namespace std;
 
 int main() {
    int numCases, numFib;
    string result = "";
-    
+   vector<int> fibNumbers;
+
    cin >> numCases;
 
-   for (int testCase=0; testCase < numCases; testCase++) {
+   for (int i=0; i < numCases; i++) {
       cin >> numFib;
+      fibNumbers.push_back(numFib);
+   }
 
-      long double fib[numFib];
+   for (int testCase=0; testCase < fibNumbers.size(); testCase++) {
+      int calcFibNum = fibNumbers[testCase];
+      long double fib[calcFibNum];
       fib[0] = 0; 
       fib[1] = 1; 
 
@@ -18,14 +25,10 @@ int main() {
       { 
          fib[i] = fib[i-1] + fib[i-2]; 
       }
-
-      result += "Case " + to_string(testCase + 1);
-      result += ": fib(" + to_string(numFib);
-      result += ") = " + to_string(fib[numFib]);
-      result +=  "\n";
+      cout << setprecision(20);
+      cout << "Case " << (testCase + 1) <<": fib(" << calcFibNum << ") = ";
+      cout << fib[calcFibNum] << "\n";
    }
-
-   cout << result;
    
    return 0;
 }
