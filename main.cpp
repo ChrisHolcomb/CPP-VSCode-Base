@@ -4,7 +4,7 @@ using namespace std;
 
 int main() {
    int numCases, numFib;
-   vector<long unsigned int> result;
+   string result = "";
     
    cin >> numCases;
 
@@ -20,13 +20,13 @@ int main() {
          fib[i] = fib[i-1] + fib[i-2]; 
       }
 
-      result.push_back(fib[numFib]);
+      result += "Case " + to_string(testCase + 1);
+      result += ": fib(" + to_string(numFib);
+      result += ") = " + to_string(fib[numFib]);
+      result +=  "\n";
    }
 
-   for (int i = 1; i <= result.size(); i++) {
-      // Working on this part to print out the results
-      //cout << "Case " << i << ": " << result[i] << endl;
-   }
+   cout << result;
    
    return 0;
 }
