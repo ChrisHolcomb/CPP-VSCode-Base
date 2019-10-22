@@ -21,7 +21,6 @@ int main() {
    }
 
    for (int i=0; i < userInputArray.size(); i++) {
-      //printArray(userInputArray[i]);
       int n = userInputArray[i];
       int myArray[n][n];
 
