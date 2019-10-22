@@ -1,12 +1,8 @@
 #include <iostream>
 #include <iomanip>
-#include <string>
 #include <vector>
-#include <array>
-
 
 using namespace std;
-
 
 void printArray(int n) {
    int myArray[n][n];
@@ -47,7 +43,9 @@ int main() {
       }
    }
 
-   for_each(userInputArray.begin(), userInputArray.end(), printArray);
+   for (int i=0; i < userInputArray.size(); i++) {
+      printArray(i);
+   }
    cout << "\n";
 
    return 0;
