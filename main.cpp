@@ -1,6 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <vector>
+#include <cmath>
 
 using namespace std;
 
@@ -8,19 +9,18 @@ void printArray(int n) {
    int myArray[n][n];
 
    // Build it
-   // Row
-   for (int r=0; r < n; r++) {
-      // Column
-      for (int c=0; c < n; c++) {
-         int y = 0;
-         if (r == 0 || c == 0 || r + 1 == n || c + 1 == n) {
-            y = 1;
-         } else if (r == c && r + c == n -1) {
-            y = 3;
-         } else {
-            y = 2;
-         }
-         myArray[r][c] = y;
+   for (int i = 1; i <= ceil(n / 2.0); i++) {
+      for (int j = i-1; j < n-i; j++) {
+         myArray[i-1][j] = i;
+      }
+      for (int k = i-1; k <= n-i; k++) {
+         myArray[k][n - i] = i;
+      }
+      for (int x = n-i; x >= i-1; x--) {
+         myArray[n-i][x] = i;
+      }
+      for (int y = n-i; y >= i-1; y--) {
+         myArray[y][i - 1] = i;
       }
    }
 
