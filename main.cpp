@@ -44,7 +44,7 @@ int main() {
    }
 
    for (int i=0; i < userInputArray.size(); i++) {
-      printArray(i);
+      printArray(userInputArray[i]);
    }
    cout << "\n";
 
