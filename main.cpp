@@ -5,8 +5,14 @@
 using namespace std;
 
 int main() {
-   string inputString;
+   int x = 0; // current position; x
+   int y = 0; // current position; y
+   int d = 0; // current direction; 0=RIGHT, 1=DOWN, 2=LEFT, 3=UP
+   int c = 0; // counter
+   int s = 1; // chain size
    int matrixSize=0, inputReadCount=0;
+
+   string inputString;
 
    // get our input string
    getline(cin, inputString);
@@ -30,12 +36,29 @@ int main() {
       }
    }
 
-   // TESTING - print out to test results of matrix
-   for (int i=0; i < matrixSize; i++) {
-      for (int j=0; j < matrixSize; j++) {
-         cout << messageArray[i][j] << " ";
+   x = ((int)floor(matrixSize/2.0));
+   y = ((int)floor(matrixSize/2.0));
+
+   for (int k=1; k<=(matrixSize-1); k++)
+   {
+      for (int j=0; j<(k<(matrixSize-1)?2:3); j++)
+      {
+         for (int i=0; i<s; i++)
+         {
+            cout << messageArray[x][y];
+            c++;
+            
+            switch (d)
+            {
+               case 0: y = y + 1; break;
+               case 1: x = x + 1; break;
+               case 2: y = y - 1; break;
+               case 3: x = x - 1; break;
+            }
+         }
+         d = (d+1)%4;
       }
-      cout << "\n";
+      s = s + 1;
    }
    cout << "\n";
 
