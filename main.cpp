@@ -12,7 +12,9 @@ int main() {
     cin >> testCaseCount;
 
     for (int i =0; i < testCaseCount; i++) {
+        cout << "Enter Matrix Size: ";
         cin >> matrixSize;
+        cout << "Enter Row Data: ";
 
         int matrixArray[matrixSize][matrixSize];
         isMagic = true;
@@ -70,7 +72,7 @@ int main() {
             isMagic = matrixSum == diagSum;
 
             if (isMagic) {
-                sort(numArray.begin(), numArray.end());
+                std::sort(numArray.begin(), numArray.end());
                 for (int n = 0; n < (int)numArray.size() - 1; n++) {
                     if (numArray[n] == numArray[n+1])
                     {
