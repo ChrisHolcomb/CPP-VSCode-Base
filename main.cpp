@@ -22,7 +22,7 @@ int main() {
 
         // Get matrix data and check Rows
         for (int row = 0; row < matrixSize; row++) {
-            int rowSum = 0;
+            rowSum = 0;
 
             for(int col = 0; col < matrixSize; col++) {
                 cin >> num;
@@ -36,6 +36,7 @@ int main() {
             } else if (isMagic) {
                 isMagic = (matrixSum == rowSum);
             }
+            //cout << "\nMatrixSum = " << matrixSum << " rowSum = " << rowSum << " isMagic = " << (isMagic ? "yes" : "no") << "\n";
         }
 
         // Check Columns
@@ -49,8 +50,9 @@ int main() {
 
                 if (matrixSum != colSum && isMagic) {
                     isMagic = false;
-                    //break;
+                    break;
                 }
+                //cout << "\nMatrixSum = " << matrixSum << " colSum = " << colSum << " isMagic = " << (isMagic ? "yes" : "no") << "\n";
             }
         }
 
@@ -62,6 +64,7 @@ int main() {
             }
 
             isMagic = matrixSum == diagSum;
+            //cout << "\nMatrixSum = " << matrixSum << " diagSum1 = " << diagSum << " isMagic = " << (isMagic ? "yes" : "no") << "\n";
             diagSum = 0;
 
             if (isMagic) {
@@ -70,6 +73,7 @@ int main() {
                 }
             }
             isMagic = matrixSum == diagSum;
+            //cout << "\nMatrixSum = " << matrixSum << " diagSum2 = " << diagSum << " isMagic = " << (isMagic ? "yes" : "no") << "\n";
 
             if (isMagic) {
                 std::sort(numArray.begin(), numArray.end());
@@ -80,11 +84,13 @@ int main() {
                         break;
                     }
                 }
+                //cout << "\nMatrixSum = " << matrixSum << " isMagic = " << (isMagic ? "yes" : "no") << " - dup check\n";
             }
         }
-        
-        cout << (isMagic ? "Magic Square" : "Not Magic Square") << "\n";
+        message += (isMagic ? "Magic Square" : "Not Magic Square");
+        message += "\n";
     }
+    cout << message << "\n";
 
     return 0;
 }
