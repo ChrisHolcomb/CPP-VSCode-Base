@@ -21,6 +21,8 @@ int main() {
         numArray.clear();
         int rowSum = 0;
 
+        
+
         // Get matrix data and check Rows
         for (int row = 0; row < matrixSize; row++) {
             rowSum = 0;
