@@ -18,6 +18,7 @@ int main() {
 
         int matrixArray[matrixSize][matrixSize];
         isMagic = true;
+        numArray.clear();
         int rowSum = 0;
 
         // Get matrix data and check Rows
