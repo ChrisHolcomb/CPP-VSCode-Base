@@ -94,7 +94,7 @@ void addPlayer(vector<int> &jerseys, vector<int> &ratings) {
 
    cout << "\nEnter a new player's jersey number: \n";
    cin >> numJersey;
-   cout << "Enter a new player's rating: \n";
+   cout << "Enter the player's rating: \n";
    cin >> numRating;
 
    jerseys.push_back(numJersey);
