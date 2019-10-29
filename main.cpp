@@ -44,6 +44,8 @@ int main() {
             break;
          case 'q':
             return 1;
+         default:
+            break;
       }
    }
 
@@ -131,10 +133,10 @@ void updatePlayerRating(vector<int> &jerseys, vector<int> &ratings) {
 void showPlayersAboveRating(vector<int> jerseys, vector<int> ratings) {
    int numRating=0;
 
-   cout << "\nEnter a rating:\n\n";
+   cout << "\nEnter a rating:\n";
    cin >> numRating;
 
-   cout << "ABOVE " << numRating << "\n";
+   cout << "\nABOVE " << numRating << "\n";
 
    for (int i = 1; i <= (int)jerseys.size(); i ++) {
       if (ratings[i] >= numRating) {
