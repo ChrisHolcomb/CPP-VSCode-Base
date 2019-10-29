@@ -134,7 +134,6 @@ void showPlayersAboveRating(vector<int> jerseys, vector<int> ratings) {
    cout << "\nEnter a rating:\n\n";
    cin >> numRating;
 
-
    cout << "ABOVE " << numRating << "\n";
 
    for (int i = 1; i <= (int)jerseys.size(); i ++) {
