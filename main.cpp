@@ -87,13 +87,13 @@ int main() {
    showMatrix(matrix2Array);
 
    outputArray = outWithOperator(matrix1Array, matrix2Array, "add");
-   cout << "Add" << "\n";
+   cout << "ADD" << "\n";
    showMatrix(outputArray);
    outputArray = outWithOperator(matrix1Array, matrix2Array, "subtract");
-   cout << "Subtract" << "\n";
+   cout << "SUBTRACT" << "\n";
    showMatrix(outputArray);
    outputArray = outWithOperator(matrix1Array, matrix2Array, "multiply");
-   cout << "multiply" << "\n";
+   cout << "MULTIPLY" << "\n";
    showMatrix(outputArray);
    
    return 0;
