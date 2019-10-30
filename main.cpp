@@ -46,8 +46,9 @@ void showMatrix(vector<vector<int>> myVector) {
    cout << "\n";
 }
 
-vector<vector<int>> addOperator(vector<vector<int>> matrix1, vector<vector<int>> matrix2) {
+vector<vector<int>> outWithOperator(vector<vector<int>> matrix1, vector<vector<int>> matrix2, string myOperator) {
    vector<vector<int>> outputVector;
+   char op = '+';
 
    if (matrix1.size() != matrix2.size()) {
       cout << "NOT COMPATIBLE\n";
@@ -57,7 +58,10 @@ vector<vector<int>> addOperator(vector<vector<int>> matrix1, vector<vector<int>>
    for (int i=0; i < (int)matrix1.size(); i++) {
       vector<int> tmp;
       for (int j=0; j < (int)matrix1[i].size(); j++) {
-         tmp.push_back(matrix1[i][j] + matrix2[i][j]);
+         if (myOperator == "add") tmp.push_back(matrix1[i][j] + matrix2[i][j]);
+         if (myOperator == "subtract") tmp.push_back(matrix1[i][j] - matrix2[i][j]);
+         if (myOperator == "multiply") tmp.push_back(matrix1[i][j] * matrix2[i][j]);
+         
       }
       outputVector.push_back(tmp);
    }
@@ -78,10 +82,18 @@ int main() {
 
    matrix1Array = getArrayForFile(fileName1);
    matrix2Array = getArrayForFile(fileName2);
-   outputArray = addOperator(matrix1Array, matrix2Array);
 
    showMatrix(matrix1Array);   
-   showMatrix(matrix2Array); 
+   showMatrix(matrix2Array);
+
+   outputArray = outWithOperator(matrix1Array, matrix2Array, "add");
+   cout << "Add" << "\n";
+   showMatrix(outputArray);
+   outputArray = outWithOperator(matrix1Array, matrix2Array, "subtract");
+   cout << "Subtract" << "\n";
+   showMatrix(outputArray);
+   outputArray = outWithOperator(matrix1Array, matrix2Array, "multiply");
+   cout << "multiply" << "\n";
    showMatrix(outputArray);
    
    return 0;
