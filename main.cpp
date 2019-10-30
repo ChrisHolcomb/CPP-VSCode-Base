@@ -46,10 +46,30 @@ void showMatrix(vector<vector<int>> myVector) {
    cout << "\n";
 }
 
+vector<vector<int>> addOperator(vector<vector<int>> &matrix1, vector<vector<int>> &matrix2) {
+   vector<vector<int>> outputVector;
+
+   if (matrix1.size() != matrix2.size()) {
+      cout << "NOT COMPATIBLE\n";
+      return outputVector;
+   }
+
+   for (int i=0; i < (int)matrix1.size(); i++) {
+      vector<int> tmp;
+      for (int j=0; j < (int)matrix1[i].size(); j++) {
+         tmp.push_back(matrix1[i][j] + matrix2[i][j]);
+      }
+      outputVector.push_back(tmp);
+   }
+
+   return outputVector;
+}
+
 int main() {
    string fileName1, fileName2;
    vector<vector<int>> matrix1Array;
    vector<vector<int>> matrix2Array;
+   vector<vector<int>> outputArray;
 
    cout << "Enter file 1 name: ";
    cin >> fileName1;
@@ -58,9 +78,11 @@ int main() {
 
    matrix1Array = getArrayForFile(fileName1);
    matrix2Array = getArrayForFile(fileName2);
+   outputArray = addOperator(matrix1Array, matrix2Array);
 
    showMatrix(matrix1Array);   
-   showMatrix(matrix2Array);   
+   showMatrix(matrix2Array); 
+   showMatrix(outputArray);
    
    return 0;
 }
