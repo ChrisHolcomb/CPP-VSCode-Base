@@ -50,7 +50,12 @@ void showMatrix(vector<vector<int>> myVector) {
 
 vector<vector<int>> outWithOperator(vector<vector<int>> matrix1, vector<vector<int>> matrix2, string myOperator) {
    vector<vector<int>> outputVector;
-   if (matrix1.size() != matrix2.size()) {
+   if (myOperator == "MULTIPLY") {
+      if (matrix1[0].size() != matrix2.size()) {
+         cout << "Two matrices are not " << myOperator << " comparable.\n";
+         return outputVector;
+      }
+   } else if (matrix1.size() != matrix2.size()) {
       cout << "Two matrices are not " << myOperator << " comparable.\n";
       return outputVector;
    }
