@@ -46,7 +46,7 @@ void showMatrix(vector<vector<int>> myVector) {
    cout << "\n";
 }
 
-vector<vector<int>> addOperator(vector<vector<int>> &matrix1, vector<vector<int>> &matrix2) {
+vector<vector<int>> addOperator(vector<vector<int>> matrix1, vector<vector<int>> matrix2) {
    vector<vector<int>> outputVector;
 
    if (matrix1.size() != matrix2.size()) {
