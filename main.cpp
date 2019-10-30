@@ -59,8 +59,7 @@ vector<vector<int>> outWithOperator(vector<vector<int>> matrix1, vector<vector<i
       for (int j=0; j < (int)matrix1[i].size(); j++) {
          if (myOperator == "add") tmp.push_back(matrix1[i][j] + matrix2[i][j]);
          if (myOperator == "subtract") tmp.push_back(matrix1[i][j] - matrix2[i][j]);
-         if (myOperator == "multiply") tmp.push_back(matrix1[i][j] * matrix2[i][j]);
-         
+         if (myOperator == "multiply") tmp.push_back(matrix1[i][j] * matrix2[i][j]);         
       }
       outputVector.push_back(tmp);
    }
