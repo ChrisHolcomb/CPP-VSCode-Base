@@ -11,7 +11,7 @@ int main() {
     cout << "Enter number of Test: ";
     cin >> testCaseCount;
 
-    for (int i =0; i < testCaseCount; i++) {
+    for (int i = 0; i < testCaseCount; i++) {
         cout << "Enter Matrix Size: ";
         cin >> matrixSize;
         cout << "Enter Row Data: ";
@@ -20,8 +20,6 @@ int main() {
         isMagic = true;
         numArray.clear();
         int rowSum = 0;
-
-        
 
         // Get matrix data and check Rows
         for (int row = 0; row < matrixSize; row++) {
@@ -66,7 +64,7 @@ int main() {
                 diagSum += matrixArray[d][d];
             }
 
-            isMagic = matrixSum == diagSum;
+            isMagic = (matrixSum == diagSum);
             //cout << "\nMatrixSum = " << matrixSum << " diagSum1 = " << diagSum << " isMagic = " << (isMagic ? "yes" : "no") << "\n";
             diagSum = 0;
 
@@ -75,7 +73,7 @@ int main() {
                     diagSum += matrixArray[d][(matrixSize - 1) - d];
                 }
             }
-            isMagic = matrixSum == diagSum;
+            isMagic = (matrixSum == diagSum);
             //cout << "\nMatrixSum = " << matrixSum << " diagSum2 = " << diagSum << " isMagic = " << (isMagic ? "yes" : "no") << "\n";
 
             if (isMagic) {
