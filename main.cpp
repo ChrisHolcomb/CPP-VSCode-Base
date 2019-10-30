@@ -48,7 +48,6 @@ void showMatrix(vector<vector<int>> myVector) {
 
 vector<vector<int>> outWithOperator(vector<vector<int>> matrix1, vector<vector<int>> matrix2, string myOperator) {
    vector<vector<int>> outputVector;
-   char op = '+';
 
    if (matrix1.size() != matrix2.size()) {
       cout << "NOT COMPATIBLE\n";
