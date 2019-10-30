@@ -33,6 +33,8 @@ vector<vector<int>> getArrayForFile(string fileName) {
       myVector.push_back(tmp);
    }
 
+   myFile.close();
+
    return myVector;
 }
 
