@@ -20,19 +20,21 @@ vector<vector<int>> getArrayForFile(string fileName) {
    }
    getline(myFile, line);
    iss.str(line);
-   iss >> r >> c;
+   iss >> r;
+   getline(myFile, line);
+   iss.clear();
+   iss.str(line);
+   iss >> c;
    for (int i=0; i < r; i++) {
       vector<int> tmp;
-      for (int j=0; j < c; j++) {
-         getline(myFile, line);
-         iss.clear();
-         iss.str(line);
-         iss >> n;
+      getline(myFile, line);
+      iss.clear();
+      iss.str(line);
+      while(iss >> n) {
          tmp.push_back(n);
       }
       myVector.push_back(tmp);
    }
-
    myFile.close();
 
    return myVector;
@@ -50,24 +52,43 @@ void showMatrix(vector<vector<int>> myVector) {
 
 vector<vector<int>> outWithOperator(vector<vector<int>> matrix1, vector<vector<int>> matrix2, string myOperator) {
    vector<vector<int>> outputVector;
-   if (myOperator == "MULTIPLY") {
+
+   if (myOperator != "MULTIPLY") {
+      // Check if compatable
+      if (matrix1.size() != matrix2.size()) {
+         cout << "Two matrices are not " << myOperator << " comparable.\n";
+         return outputVector;
+      }
+
+      for (int i=0; i < (int)matrix1.size(); i++) {
+         vector<int> tmp;
+         for (int j=0; j < (int)matrix1[i].size(); j++) {
+            if (myOperator == "ADD") tmp.push_back(matrix1[i][j] + matrix2[i][j]);
+            if (myOperator == "SUBTRACT") tmp.push_back(matrix1[i][j] - matrix2[i][j]);
+         }
+         outputVector.push_back(tmp);
+      }
+   } else {
+      // check if compatable
       if (matrix1[0].size() != matrix2.size()) {
          cout << "Two matrices are not " << myOperator << " comparable.\n";
          return outputVector;
       }
-   } else if (matrix1.size() != matrix2.size()) {
-      cout << "Two matrices are not " << myOperator << " comparable.\n";
-      return outputVector;
-   }
-
-   for (int i=0; i < (int)matrix1.size(); i++) {
-      vector<int> tmp;
-      for (int j=0; j < (int)matrix1[i].size(); j++) {
-         if (myOperator == "ADD") tmp.push_back(matrix1[i][j] + matrix2[i][j]);
-         if (myOperator == "SUBTRACT") tmp.push_back(matrix1[i][j] - matrix2[i][j]);
-         if (myOperator == "MULTIPLY") tmp.push_back(matrix1[i][j] * matrix2[i][j]);         
+      
+      // for each row in matrix 1
+      for (int r1=0; r1 < (int)matrix1.size(); r1++) {
+         vector<int> tmp;
+         // for each column in matrix 2
+         for (int c2=0; c2 < (int)matrix2[r1].size(); c2++) {
+            int c2Sum=0;
+            // for each column in matrix 1
+            for (int c1=0; c1 < (int)matrix1[r1].size(); c1++) {
+               c2Sum += matrix1[r1][c1] * matrix2[c1][c2];
+            }
+            tmp.push_back(c2Sum);
+         }
+         outputVector.push_back(tmp);
       }
-      outputVector.push_back(tmp);
    }
 
    return outputVector;
@@ -109,12 +130,16 @@ int main() {
    matrix1Array = getArrayForFile(fileName1);
    matrix2Array = getArrayForFile(fileName2);
 
-   outputArray = outWithOperator(matrix1Array, matrix2Array, operation);
-   showMatrix(outputArray);
-
    // DEBUG - Show matrix for file 1 and 2
    // showMatrix(matrix1Array);   
    // showMatrix(matrix2Array);
+
+   if (matrix1Array.size() < 1 || matrix2Array.size() < 1) {
+      return -1;
+   }
+
+   outputArray = outWithOperator(matrix1Array, matrix2Array, operation);
+   showMatrix(outputArray);
 
    // DEBUG - Show format of input file
    //showDataFile(fileName1);
