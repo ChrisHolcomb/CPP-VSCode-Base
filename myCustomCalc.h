@@ -1,5 +1,5 @@
-#ifndef MyCustomCalc
-#define MyCustomCalc
+#ifndef MYCUSTOMCALC_H
+#define MYCUSTOMCALC_H
 
 int add(int a, int b) {
     return a+b;
