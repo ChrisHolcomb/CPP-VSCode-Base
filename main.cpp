@@ -64,7 +64,7 @@ string CreateTriangle(int numRows, char direction) {
 void CreateTriangleLine(ostringstream &oss, int numRows, int i) {
    // Print the Spaces before the numbers
    for (int space = 1; space < numRows - i; space++) {
-      oss <<  setw(WIDTH) << " ";
+      oss << setw(WIDTH) << " ";
    }
    // Print the number
    for (int j = 0; j <= i; j++) {
