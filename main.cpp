@@ -2,9 +2,17 @@
 #include <string>
 using namespace std;
 
-int main() {
+string RemoveSpaces(string userString) {
+   userString.erase(remove(userString.begin(), userString.end(), ' '), userString.end());
+   return userString;
+}
 
-   printf("Hello World\n");
+int main() {
+   string userInput;
+
+   getline(cin, userInput);
+
+   cout << RemoveSpaces(userInput) << endl;
 
    return 0;
 }
