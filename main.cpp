@@ -7,7 +7,7 @@ int GetNumOfNonWSCharacters(string);
 int GetNumOfWords(const string);
 int FindText(string, string);
 string ReplaceExclamation(const string);
-string ShortenSpaces(const string);
+string ShortenSpace(const string);
 
 int main() {
    string userText, result;
@@ -66,7 +66,7 @@ string PrintMenu(const string userText) {
             done = true;
             break;
          case 's':
-            results = ShortenSpaces(userText);
+            results = ShortenSpace(userText);
             done = true;
             break;
          case 'q':
@@ -96,7 +96,7 @@ int GetNumOfWords(const string userText) {
    int counter=1;
 
    for (int i=0; i< userText.length(); i++) {
-      if (userText[i] == ' ') {
+      if (userText[i] == ' ' && userText[i+1] != ' ') {
          counter++;
       }
    }
@@ -139,7 +139,7 @@ string ReplaceExclamation(const string userText) {
    return newString;
 }
 
-string ShortenSpaces(const string userText) {
+string ShortenSpace(const string userText) {
    string newString;
 
    for (int i=0; i < userText.length(); i++) {
