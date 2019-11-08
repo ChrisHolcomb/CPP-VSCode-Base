@@ -3,8 +3,15 @@
 using namespace std;
 
 string RemoveSpaces(string userString) {
-   userString.erase(remove(userString.begin(), userString.end(), ' '), userString.end());
-   return userString;
+   string newString;
+
+   for (int i=0; i < (int)userString.length(); i++){
+      if (userString[i] != ' ') {
+         newString += userString[i];
+      }
+   }
+   
+   return newString;
 }
 
 int main() {
