@@ -29,7 +29,6 @@ string PrintMenu(const string userText) {
    string results = "INVALID", userInput;
    char option;
    bool done = false;
-   string testing;
 
    cout << "\n\nMENU\n";
    cout << "c - Number of non-whitespace characters\n";
