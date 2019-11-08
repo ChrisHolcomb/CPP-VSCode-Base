@@ -8,36 +8,38 @@ using namespace std;
 
 const int WIDTH = 5;
 
-string CreateTriangle(int numRows) {
-   ostringstream oss;
-   for (int i = 0; i < numRows; i++) {       
-      for (int space = 1; space < numRows - i; space++) {
-         oss <<  setw(WIDTH) << " ";
-      }
-      for (int j = 0; j <= i; j++) {
-         oss << setw(WIDTH) << right << combination(i, j);
-         oss << setw(WIDTH) << " ";
-      }
-      oss << endl;
+void CreateTriangleLine(ostringstream &oss, int numRows, int i) {
+   // Print the Spaces before the numbers
+   for (int space = 1; space < numRows - i; space++) {
+      oss <<  setw(WIDTH) << " ";
    }
-
-    return oss.str();
+   // Print the number
+   for (int j = 0; j <= i; j++) {
+      oss << setw(WIDTH) << right << combination(i, j);
+      oss << setw(WIDTH) << " ";
+   }
+   oss << endl;
 }
 
-string CreateTriangleUpsideDown(int numRows) {
+string CreateTriangle(int numRows, char direction) {
    ostringstream oss;
-   for (int i = numRows - 1 ; i >= 0; i--) {
-      for (int space = 1; space < numRows - i; space++) {
-         oss << setw(WIDTH) << " ";
-      }
-      for (int j = 0; j <= i; j++) {
-         oss << setw(WIDTH) << right << combination(i, j);
-         oss << setw(WIDTH) << " ";
-      }
-      oss << endl;
+
+   switch(direction) {
+      case 'U':
+         for (int i = 0; i < numRows; i++) {
+            CreateTriangleLine(oss, numRows, i);
+         }
+         break;
+      case 'D':
+         for (int i = numRows - 1 ; i >= 0; i--) {
+            CreateTriangleLine(oss, numRows, i);
+         }
+         break;
+      default:
+         break;
    }
 
-    return oss.str();
+   return oss.str();
 }
 
 int main() {
@@ -53,7 +55,7 @@ int main() {
    cout << endl;
    
    // Create the Triangle
-   triangleString = CreateTriangle(numRows);
+   triangleString = CreateTriangle(numRows, 'U');
    cout << triangleString;
    // Open the file, output the results to the file and close it
    outFS.open("Pascal.txt");
@@ -64,7 +66,7 @@ int main() {
    cout << "*** Start Extra Credit ***" << endl;
    cout << endl;
    
-   cout << CreateTriangleUpsideDown(numRows);
+   cout << CreateTriangle(numRows, 'D');
    
    cout << endl;
    cout << "*** End Extra Credit ***" << endl;
