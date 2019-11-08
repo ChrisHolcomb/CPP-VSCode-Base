@@ -11,7 +11,7 @@ const int WIDTH = 5;
 string CreateTriangle(int numRows) {
    ostringstream oss;
    for (int i = 0; i < numRows; i++) {       
-      for (int space = 0; space < (numRows - i) - 1; space++) {
+      for (int space = 1; space < numRows - i; space++) {
          oss <<  setw(WIDTH) << " ";
       }
       for (int j = 0; j <= i; j++) {
@@ -27,7 +27,7 @@ string CreateTriangle(int numRows) {
 string CreateTriangleUpsideDown(int numRows) {
    ostringstream oss;
    for (int i = numRows - 1 ; i >= 0; i--) {
-      for (int space = 0; space < (numRows - i) - 1; space++) {
+      for (int space = 1; space < numRows - i; space++) {
          oss << setw(WIDTH) << " ";
       }
       for (int j = 0; j <= i; j++) {
