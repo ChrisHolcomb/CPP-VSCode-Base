@@ -8,7 +8,7 @@
         "args": [
             "-std=c++17",
             "-stdlib=libc++",
-            "${file}",
+            "*.cpp",
             "-o",
             "${fileDirname}/${fileBasenameNoExtension}.o",
             "--debug"
