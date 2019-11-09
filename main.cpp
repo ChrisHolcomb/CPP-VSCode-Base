@@ -3,6 +3,7 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
+#include <vector>
 #include "triangle.h"
 
 using namespace std;
@@ -12,6 +13,8 @@ int main() {
    ifstream myFile;
    istringstream iss;
    double a, b, c;
+   double x1, y1, x2, y2, x3, y3, area;
+   vector<double> areaArray;
 
    cout << "Enter name of data file : ";
    getline(cin, fileName);
@@ -24,7 +27,6 @@ int main() {
       getline(myFile, fileContent);
       // Now get the data
       while(getline(myFile, fileContent)) {
-         double x1, y1, x2, y2, x3, y3;
          iss.clear();
          iss.str(fileContent);
          iss >> x1 >> y1 >> x2 >> y2 >> x3 >> y3;
@@ -34,9 +36,12 @@ int main() {
          a = lengthOfSide(x2, y2, x1, y1);
          b = lengthOfSide(x3, y3, x2, y2);
          c = lengthOfSide(x1, y1, x3, y3);
+         area = triangleArea(a,b,c);
 
          cout << fixed << setprecision(2);
-         cout << "    area = " << setw(8) << right << triangleArea(a,b,c) << endl;
+         cout << "    area = " << setw(8) << right << area << endl;
+
+         areaArray.push_back(area);
       }
 
    }
