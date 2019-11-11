@@ -2,6 +2,7 @@
 #define SPHERE_H
 
 #include <string>
+#include <cmath>
 using namespace std;
 
 class Sphere

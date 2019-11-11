@@ -41,14 +41,14 @@ string Sphere::getColor() const
 double Sphere::area() const 
 {
     double area = 0.0;
-
+    area = 4 * pi * pow(radius, 2);
     return area;
 }
 
 double Sphere::volume() const
 {
     double volume = 0.0;
-
+    volume = ((4.0/3.0) * pi * pow(radius, 3));
     return volume;
 }
 

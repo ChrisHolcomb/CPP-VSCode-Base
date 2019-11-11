@@ -39,6 +39,8 @@ void PrintSphere(Sphere sphere)
 {
    cout << "Radius: " << sphere.getRadius();
    cout << "\nColor: " << sphere.getColor();
+   cout << "\nArea: " << sphere.area();
+   cout << "\nVolume: " << sphere.volume();
    cout << endl;
 
 }
