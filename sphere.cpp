@@ -23,7 +23,7 @@ void Sphere::setRadius(double r)
     radius = r;
 }
 
-double Sphere::getRadius()
+double Sphere::getRadius() const
 {
     return radius;
 }
@@ -33,7 +33,7 @@ void Sphere::setColor(string c)
     color = c;
 }
 
-string Sphere::getColor()
+string Sphere::getColor() const
 {
     return color;
 }

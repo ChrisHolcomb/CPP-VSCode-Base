@@ -21,11 +21,11 @@ class Sphere
         // mutator method used to change the radius
         void setRadius(double r);
         // constatn function thta returs the radius
-        double getRadius();
+        double getRadius() const;
         // mutator method to set the color of the Sphere
         void setColor(string c);
         // constat accessor method that retuns the color of the Sphere
-        string getColor();
+        string getColor() const;
         // constant function that retus the surface area fo Sphere
         double area() const;
         // constant function that returns the colume of Sphere
