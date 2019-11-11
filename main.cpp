@@ -43,10 +43,12 @@ int main() {
 
          areaArray.push_back(area);
       }
-
    }
    myFile.close();
    cout << endl;
+
+   cout << "Maximum area = : " << maxArea(areaArray) << endl;
+   cout << "Minmium area = : " << minArea(areaArray) << endl;
 
    return 0;
 }
