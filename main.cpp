@@ -68,6 +68,15 @@ void PrintStats(vector<SphereData> sphereData) {
    cout << "Average Area = " << avgArea << endl;
 }
 
+bool compareTwoSpheres(SphereData a, SphereData b) {
+   // First check color then by volume
+   if (a.Color != b.Color) {
+      return a.Color > b.Color;
+   } else {
+      return a.Volume > b.Volume;
+   }
+}
+
 int main() {
     //DATA ABSTRACTION
     //double sphereRArray[100];
@@ -116,11 +125,15 @@ int main() {
             stop = true;
 
             PrintReport(sphereDataArray);
+            cout << endl;
             PrintStats(sphereDataArray);
             
             cout << "*** Start Extra Credit ***" << endl;
             cout << endl;
             
+            sort(sphereDataArray.begin(), sphereDataArray.end(), compareTwoSpheres);
+            PrintReport(sphereDataArray);
+
             cout << endl;
             cout << "*** End Extra Credit ***" << endl;
         }
