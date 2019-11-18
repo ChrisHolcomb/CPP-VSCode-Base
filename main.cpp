@@ -43,8 +43,8 @@ void PrintReport(vector<SphereData> sphereData) {
 }
 
 void PrintStats(vector<SphereData> sphereData) {
-   int redCount=0, volNum=0;
-   double redPerc=0, areaSum=0, avgArea=0;
+   int volNum=0;
+   double redCount=0, redPerc=0, areaSum=0, avgArea=0;
 
    for (int i=0; i < (int)sphereData.size(); i++) {
       // Count Red Spheres
@@ -57,7 +57,6 @@ void PrintStats(vector<SphereData> sphereData) {
       }
       areaSum += sphereData[i].Area;
    }
-   cout << "Red Count: " << redCount << endl;
 
    redPerc = (redCount / (int)sphereData.size()) * 100.0;   
    avgArea = areaSum / (int)sphereData.size();
