@@ -71,9 +71,9 @@ void PrintStats(vector<SphereData> sphereData) {
 bool compareTwoSpheres(SphereData a, SphereData b) {
    // First check color then by volume
    if (a.Color != b.Color) {
-      return a.Color > b.Color;
+      return a.Color < b.Color;
    } else {
-      return a.Volume > b.Volume;
+      return a.Volume < b.Volume;
    }
 }
 
