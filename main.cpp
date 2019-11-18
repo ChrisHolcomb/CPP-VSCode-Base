@@ -79,10 +79,7 @@ bool compareTwoSpheres(SphereData a, SphereData b) {
 
 int main() {
     //DATA ABSTRACTION
-    //double sphereRArray[100];
-    vector<double> areaArray;
     vector<SphereData> sphereDataArray;
-    //string sphereCArray[100];
     double r;
     string color;
     string fileName, fileContent;
