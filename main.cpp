@@ -13,8 +13,14 @@ int main() {
 
    Pair myPair = Closest_Pair(pointArray, 5);
 
-   cout << "Point One: " << myPair.indexPointOne << endl;
-   cout << "Point Two: " << myPair.indexPointTwo << endl;
+   cout << "Point One: " << myPair.indexPointOne
+        << " (" << pointArray[myPair.indexPointOne].x << "," 
+        << pointArray[myPair.indexPointOne].y << ")" << endl;
+   cout << "Point Two: " << myPair.indexPointTwo 
+        << " (" << pointArray[myPair.indexPointTwo].x << "," 
+        << pointArray[myPair.indexPointTwo].y << ")" << endl;
+   cout << "Distance = " << distance(pointArray[myPair.indexPointOne],pointArray[myPair.indexPointTwo])
+        << endl;
 
    cout << endl;
 
