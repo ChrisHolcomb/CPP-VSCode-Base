@@ -5,7 +5,8 @@
         "iosfwd": "cpp",
         "type_traits": "cpp",
         "istream": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "ios": "cpp"
     },
     "files.exclude": {
         "*.dSYM/": true,
